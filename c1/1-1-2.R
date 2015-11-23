@@ -17,12 +17,18 @@
 
 source("c1/bisect.R")
 fa = function(x) x ^ 5 + x - 1
-bisect(fa, 0, 10, 0.5e-8)
-uniroot(fa, c(0, 10), tol = 1e-8)
+curve(fa, -2, 2)
+abline(h = 0, v = 0)
+bisect(fa, 0, 1, 0.5e-8)
+uniroot(fa, c(0, 1), tol = 1e-8)
 fb = function(x) sin(x) - 6 * x - 5
-bisect(fb, -10, 10, 0.5e-8)
-uniroot(fb, c(-10, 10), tol = 1e-8)
+curve(fb, -2, 2)
+abline(h = 0, v = 0)
+bisect(fb, -1, 0, 0.5e-8)
+uniroot(fb, c(-1, 0), tol = 1e-8)
 fc = function(x) log2(x) + x ^ 2 - 3
-bisect(fc, 0, 10, 0.5e-8)
-uniroot(fc, c(0, 10), tol = 1e-8)
+curve(fc, 0, 4)
+abline(h = 0, v = 0)
+bisect(fc, 1, 2, 0.5e-8)
+uniroot(fc, c(1, 2), tol = 1e-8)
 

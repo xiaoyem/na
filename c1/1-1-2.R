@@ -16,13 +16,13 @@
 #
 
 source("c1/bisect.R")
-fa = function(x) x ^ 3 - 9
-bisect(fa, 0, 10, 0.5e-6)
-uniroot(fa, c(0, 10), tol = 1e-6)
-fb = function(x) 3 * x ^ 3 + x ^ 2 - x - 5
-bisect(fb, 0, 10, 0.5e-6)
-uniroot(fb, c(0, 10), tol = 1e-6)
-fc = function(x) cos(x) ^ 2 + 6 - x
-bisect(fc, 0, 10, 0.5e-6)
-uniroot(fc, c(0, 10), tol = 1e-6)
+fa = function(x) x ^ 5 + x - 1
+bisect(fa, 0, 10, 0.5e-8)
+uniroot(fa, c(0, 10), tol = 1e-8)
+fb = function(x) sin(x) - 6 * x - 5
+bisect(fb, -10, 10, 0.5e-8)
+uniroot(fb, c(-10, 10), tol = 1e-8)
+fc = function(x) log2(x) + x ^ 2 - 3
+bisect(fc, 0, 10, 0.5e-8)
+uniroot(fc, c(0, 10), tol = 1e-8)
 

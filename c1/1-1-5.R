@@ -15,23 +15,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-bisect = function(f, a, b, tol) {
-	fa = f(a)
-	fb = f(b)
-	if (fa * fb >= 0) {
-		cat("f(a)f(b) < 0 not satisfied!\n")
-		return(NULL)
-	}
-	while ((b - a) / 2 > tol) {
-		c = (a + b) / 2
-		fc = f(c)
-		if (fc == 0) break
-		if (fc * fa < 0) {
-			b = c; fb = fc
-		} else {
-			a = c; fa = fc
-		}
-	}
-	(a + b) / 2
-}
+require(rootSolve)
+
+source("c1/bisect.R")
+fa = function(x) x ^ 3 - 2
+curve(fa, -2, 2)
+abline(h = 0, v = 0)
+bisect(fa, 1, 2, 0.5e-8)
+uniroot.all(fa, c(1, 2), tol = 1e-8)
+fb = function(x) x ^ 3 - 3
+curve(fb, -2, 2)
+abline(h = 0, v = 0)
+bisect(fb, 1, 2, 0.5e-8)
+uniroot.all(fb, c(1, 2), tol = 1e-8)
+fc = function(x) x ^ 3 - 5
+curve(fc, -2, 2)
+abline(h = 0, v = 0)
+bisect(fc, 1, 2, 0.5e-8)
+uniroot.all(fc, c(1, 2), tol = 1e-8)
 

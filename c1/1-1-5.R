@@ -18,16 +18,19 @@
 require(rootSolve)
 
 source("c1/bisect.R")
+# (a)
 fa = function(x) x ^ 3 - 2
 curve(fa, -2, 2)
 abline(h = 0, v = 0)
 bisect(fa, 1, 2, 0.5e-8)
 uniroot.all(fa, c(1, 2), tol = 1e-8)
+# (b)
 fb = function(x) x ^ 3 - 3
 curve(fb, -2, 2)
 abline(h = 0, v = 0)
 bisect(fb, 1, 2, 0.5e-8)
 uniroot.all(fb, c(1, 2), tol = 1e-8)
+# (c)
 fc = function(x) x ^ 3 - 5
 curve(fc, -2, 2)
 abline(h = 0, v = 0)

@@ -16,10 +16,13 @@
 #
 
 source("c1/fpi.R")
+# (a)
 fa = function(x) (2 * x + 2) ^ (1 / 3)
 fpi(fa, 0, 0.5e-8)
+# (b)
 fb = function(x) log(7 - x)
 fpi(fb, 0, 0.5e-8)
+# (c)
 fc = function(x) log(4 - sin(x))
 fpi(fc, 0, 0.5e-8)
 

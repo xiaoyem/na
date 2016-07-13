@@ -15,31 +15,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require(rootSolve)
-
-source("c1/bisect.R")
+source("c1/fpi.R")
 # (a)
-fa = function(x) 2 * x ^ 3 - 6 * x - 1
-curve(fa, -2, 2)
-abline(h = 0, v = 0)
-bisect(fa, -2, -1, 0.5e-6)
-bisect(fa, -1,  0, 0.5e-6)
-bisect(fa,  1,  2, 0.5e-6)
-uniroot.all(fa, c(-2, 2), tol = 1e-6)
+fa = function(x) (x + 3 / x) / 2
+fpi(fa, 1.5, 0.5e-8)
 # (b)
-fb = function(x) exp(x - 2) + x ^ 3 - x
-curve(fb, -2, 2)
-abline(h = 0, v = 0)
-bisect(fb,  -2,  -1, 0.5e-6)
-bisect(fb,   0, 0.5, 0.5e-6)
-bisect(fb, 0.5,   1, 0.5e-6)
-uniroot.all(fb, c(-2, 1), tol = 1e-6)
-# (c)
-fc = function(x) 1 + 5 * x - 6 * x ^ 3 - exp(2 * x)
-curve(fc, -2, 2)
-abline(h = 0, v = 0)
-bisect(fc,   -1, -0.5, 0.5e-6)
-bisect(fc, -0.5,  0.5, 0.5e-6)
-bisect(fc,  0.5,    1, 0.5e-6)
-uniroot.all(fc, c(-1, 1), tol = 1e-6)
+fb = function(x) (x + 5 / x) / 2
+fpi(fb, 2, 0.5e-8)
 

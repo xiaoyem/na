@@ -16,16 +16,19 @@
 #
 
 source("c1/bisect.R")
+# (a)
 fa = function(x) x ^ 3 - 9
 curve(fa, -3, 3)
 abline(h = 0, v = 0)
 bisect(fa, 2, 3, 0.5e-6)
 uniroot(fa, c(2, 3), tol = 1e-6)
+# (b)
 fb = function(x) 3 * x ^ 3 + x ^ 2 - x - 5
 curve(fb, -3, 3)
 abline(h = 0, v = 0)
 bisect(fb, 1, 2, 0.5e-6)
 uniroot(fb, c(1, 2), tol = 1e-6)
+# (c)
 fc = function(x) cos(x) ^ 2 + 6 - x
 curve(fc, 2, 8)
 abline(h = 0)

@@ -16,16 +16,19 @@
 #
 
 source("c1/bisect.R")
+# (a)
 fa = function(x) x ^ 5 + x - 1
 curve(fa, -2, 2)
 abline(h = 0, v = 0)
 bisect(fa, 0, 1, 0.5e-8)
 uniroot(fa, c(0, 1), tol = 1e-8)
+# (b)
 fb = function(x) sin(x) - 6 * x - 5
 curve(fb, -2, 2)
 abline(h = 0, v = 0)
 bisect(fb, -1, 0, 0.5e-8)
 uniroot(fb, c(-1, 0), tol = 1e-8)
+# (c)
 fc = function(x) log2(x) + x ^ 2 - 3
 curve(fc, 0, 4)
 abline(h = 0, v = 0)

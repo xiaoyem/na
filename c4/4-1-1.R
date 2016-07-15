@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,6 +14,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-A=matrix(c(3,4,-3,1,-2,-1,1,2,1,0,2,0,1,5,3),nrow=5,ncol=3)
-y=matrix(c(10,10,-5,15,0),nrow=5,ncol=1)
-c=solve(t(A)%*%A,t(A)%*%y)
+
+# (a)
+Aa = matrix(c(3, 4, -3, 1, -2, -1, 1, 2, 1, 0, 2, 0, 1, 5, 3), nrow = 5)
+ba = matrix(c(10, 10, -5, 15, 0))
+xa = solve(t(Aa) %*% Aa, t(Aa) %*% ba)
+xa
+sqrt(sum((ba - Aa %*% xa) ^ 2))
+# (b)
+Ab = matrix(c(4, -2, 1, 1, 3, 2, 3, 3, 0, 1, 3, -1, -4, 1, 3, 0, 1, 2, -1, -2), nrow = 5)
+bb = matrix(c(10, 0, 2, 0, 5))
+xb = solve(t(Ab) %*% Ab, t(Ab) %*% bb)
+xb
+sqrt(sum((bb - Ab %*% xb) ^ 2))
+

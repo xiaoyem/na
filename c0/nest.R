@@ -15,20 +15,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-newtdd = function(x, y, n) {
-    v = matrix(0, n, n)
-    for (i in 1:n) {
-        v[i, 1] = y[i]
+nest = function(d, c, x, b = c(rep(0, d))) {
+    y = c[d + 1]
+    for (i in seq(d, 1, -1)) {
+        y = y * (x - b[i]) + c[i]
     }
-    for (i in 2:n) {
-        for (j in 1:(n - i + 1)) {
-            v[j, i] = (v[j + 1, i - 1] - v[j, i - 1]) / (x[j + i - 1] - x[j])
-        }
-    }
-    c = c(rep(0, n))
-    for (i in 1:n) {
-        c[i] = v[1, i]
-    }
-    c
+    y
 }
 

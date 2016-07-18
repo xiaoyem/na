@@ -17,7 +17,7 @@
 
 nest = function(d, c, x, b = c(rep(0, d))) {
     y = c[d + 1]
-    for (i in seq(d, 1, -1)) {
+    for (i in d:1) {
         y = y * (x - b[i]) + c[i]
     }
     y

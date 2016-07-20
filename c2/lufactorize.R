@@ -20,8 +20,7 @@ lufactorize = function(A) {
     l = matrix(0, n, n)
     for (i in 1:(n - 1)) {
         if (abs(A[i, i]) < .Machine$double.eps) {
-            cat("zero pivot encountered\n")
-            return(NULL)
+            stop("zero pivot encountered")
         }
         l[i, i] = 1
         for (j in (i + 1):n) {

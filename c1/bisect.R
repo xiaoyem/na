@@ -19,8 +19,7 @@ bisect = function(f, a, b, tol) {
     fa = f(a)
     fb = f(b)
     if (fa * fb >= 0) {
-        cat("f(a)f(b) < 0 not satisfied!\n")
-        return(NULL)
+        stop("f(a)f(b) < 0 not satisfied!")
     }
     while ((b - a) / 2 > tol) {
         c = (a + b) / 2

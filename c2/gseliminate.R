@@ -16,11 +16,10 @@
 #
 
 gseliminate = function(A, b) {
-    n = nrow(b)
+    n = nrow(A)
     for (i in 1:(n - 1)) {
         if (abs(A[i, i]) < .Machine$double.eps) {
-            cat("zero pivot encountered\n")
-            return(NULL)
+            stop("zero pivot encountered")
         }
         for (j in (i + 1):n) {
             multi = A[j, i] / A[i, i]

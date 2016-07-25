@@ -37,18 +37,30 @@ gram_schmidt = function(A) {
 Aa = matrix(c(4, 0,
               3, 1), ncol = 2, byrow = TRUE)
 gram_schmidt(Aa)
+res = qr(Aa)
+qr.Q(res)
+qr.R(res)
 # (b)
 Ab = matrix(c(1, 2,
               1, 1), ncol = 2, byrow = TRUE)
 gram_schmidt(Ab)
+res = qr(Ab)
+qr.Q(res)
+qr.R(res)
 # (c)
 Ac = matrix(c(2,  1,
               1, -1,
               2,  1), ncol = 2, byrow = TRUE)
 gram_schmidt(Ac)
+res = qr(Ac)
+qr.Q(res)
+qr.R(res)
 # (d)
 Ad = matrix(c(4, 8,  1,
               0, 2, -2,
               3, 6,  7), ncol = 3, byrow = TRUE)
 gram_schmidt(Ad)
+res = qr(Ad)
+qr.Q(res)
+qr.R(res)
 

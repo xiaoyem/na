@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,29 +14,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-euler=function (inter,y0,n){
-t=vector(length = n+1)
-y=vector(length = n+1)
-residual1=vector(length = n+1)
-  t[1]=inter[1]
-y[1]=y0
-h=(inter[2]-inter[1])/n
-for(i in 1:n){ 
-t[i+1]=t[i]+h
-y[i+1]=eulerstep(t[i],y[i],h)
-residual1[i+1]=y[i+1]-(0.5*t[i+1]^2+1)
+
+euler = function(inter, y0, n) {
+    t = c(rep(0, n + 1))
+    y = c(rep(0, n + 1))
+    t[1] = inter[1]
+    y[1] = y0
+    h = (inter[2] - inter[1]) / n
+    for (i in 1:n) {
+        t[i + 1] = t[i] + h
+        y[i + 1] = eulerstep(t[i], y[i], h)
+    }
+    #plot(t, y)
+    list(t, y)
 }
-plot(t,y)
-return(list(t,y,residual1))
+
+eulerstep = function(t, y, h) {
+    y = y + h * ydot(t, y)
 }
-eulerstep=function(t,y,h){
 
-y=y+h*ydot(t,y);
-return(y)}
-
-ydot=function(t,y){
-
-z = t
-
-return(z)
-}

@@ -17,33 +17,33 @@
 
 source("c6/euler.R")
 # (a)
-ydot = function(t, y) {
-    z = t
-}
-euler(c(0, 1), 1, 10)
+ydot = function(t, y) t
+res = euler(c(0, 1), 1, 10)
+res
+abs(sapply(res[1], function(t) 1 + t ^ 2 / 2) - unlist(res[2]))
 # (b)
-ydot = function(t, y) {
-    z = t ^ 2 * y
-}
-euler(c(0, 1), 1, 10)
+ydot = function(t, y) t ^ 2 * y
+res = euler(c(0, 1), 1, 10)
+res
+abs(sapply(res[1], function(t) exp(t ^ 2 / 3)) - unlist(res[2]))
 # (c)
-ydot = function(t, y) {
-    z = 2 * (t + 1) * y
-}
-euler(c(0, 1), 1, 10)
+ydot = function(t, y) 2 * (t + 1) * y
+res = euler(c(0, 1), 1, 10)
+res
+abs(sapply(res[1], function(t) exp(t ^ 2 + 2 * t)) - unlist(res[2]))
 # (d)
-ydot = function(t, y) {
-    z = 5 * t ^ 4 * y
-}
-euler(c(0, 1), 1, 10)
+ydot = function(t, y) 5 * t ^ 4 * y
+res = euler(c(0, 1), 1, 10)
+res
+abs(sapply(res[1], function(t) exp(t ^ 5)) - unlist(res[2]))
 # (e)
-ydot = function(t, y) {
-    z = 1 / y ^ 2
-}
-euler(c(0, 1), 1, 10)
+ydot = function(t, y) 1 / y ^ 2
+res = euler(c(0, 1), 1, 10)
+res
+abs(sapply(res[1], function(t) (3 * t + 1) ^ (1 / 3)) - unlist(res[2]))
 # (f)
-ydot = function(t, y) {
-    z = t ^ 3 / y ^ 2
-}
-euler(c(0, 1), 1, 10)
+ydot = function(t, y) t ^ 3 / y ^ 2
+res = euler(c(0, 1), 1, 10)
+res
+abs(sapply(res[1], function(t) (3 * t ^ 4 / 4 + 1) ^ (1 / 3)) - unlist(res[2]))
 

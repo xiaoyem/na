@@ -16,6 +16,7 @@
 #
 
 source("c6/euler.R")
+eulerstep = function(t, y, h) y + h / 2 * (ydot(t, y) + ydot(t + h, y + h * ydot(t, y)))
 # (a)
 ydot = function(t, y) t
 res = euler(c(0, 1), 1, 10)

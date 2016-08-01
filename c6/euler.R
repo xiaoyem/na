@@ -29,7 +29,5 @@ euler = function(inter, y0, n) {
     list(t, y)
 }
 
-eulerstep = function(t, y, h) {
-    y = y + h * ydot(t, y)
-}
+eulerstep = function(t, y, h) y + h * ydot(t, y)
 

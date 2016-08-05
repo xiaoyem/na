@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,32 +14,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-euler2=function (inter,y0,n){
-  t=vector(length = n+1)
-  y=matrix(nrow=n+1,ncol=length(y0))
- 
-  t[1]=inter[1]
-  y[1,]=y0
-  h=(inter[2]-inter[1])/n
-  for(i in 1:n){ 
-    t[i+1]=t[i]+h
-    y[i+1,]=eulerstep(t[i],y[i,],h)
-    
-  }
-  
-  plot(t,y[,1],ylim=c(min(y),max(y)),pch=1)
-  points(t,y[,2],pch=2) 
-  return(list(t,y))
-}
-eulerstep=function(t,y,h){
-  
-  y=y+h*ydot(t,y);
-  return(y)}
 
-ydot=function(t,y){
-  z=vector(length = 2)
-  z[1] = y[2]^2-2*y[1]
-  z[2]=y[1]-y[2]-t*y[2]^2
-  
-  return(z)
+euler2 = function(inter, y0, n) {
+    t = c(rep(0, n + 1))
+    y = matrix(0, n + 1, 2)
+    t[1] = inter[1]
+    y[1, ] = y0
+    h = (inter[2] - inter[1]) / n
+    for (i in 1:n) {
+        t[i + 1] = t[i] + h
+        y[i + 1, ] = eulerstep(t[i], y[i, ], h)
+    }
+    # FIXME
+    list(t, y[, 1], t, y[, 2])
 }
+
+eulerstep = function(t, y, h) y + h * ydot(t, y)
+

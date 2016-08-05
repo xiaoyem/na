@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-modified_gram_schmidt = function(A) {
+modified_gramschmidt = function(A) {
     n = ncol(A)
     r = matrix(0, n, n)
     q = matrix(0, nrow(A), n)
@@ -36,19 +36,19 @@ modified_gram_schmidt = function(A) {
 # (a)
 Aa = matrix(c(4, 0,
               3, 1), ncol = 2, byrow = TRUE)
-modified_gram_schmidt(Aa)
+modified_gramschmidt(Aa)
 # (b)
 Ab = matrix(c(1, 2,
               1, 1), ncol = 2, byrow = TRUE)
-modified_gram_schmidt(Ab)
+modified_gramschmidt(Ab)
 # (c)
 Ac = matrix(c(2,  1,
               1, -1,
               2,  1), ncol = 2, byrow = TRUE)
-modified_gram_schmidt(Ac)
+modified_gramschmidt(Ac)
 # (d)
 Ad = matrix(c(4, 8,  1,
               0, 2, -2,
               3, 6,  7), ncol = 3, byrow = TRUE)
-modified_gram_schmidt(Ad)
+modified_gramschmidt(Ad)
 

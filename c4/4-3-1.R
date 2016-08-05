@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-gram_schmidt = function(A) {
+gramschmidt = function(A) {
     n = ncol(A)
     r = matrix(0, n, n)
     q = matrix(0, nrow(A), n)
@@ -36,14 +36,14 @@ gram_schmidt = function(A) {
 # (a)
 Aa = matrix(c(4, 0,
               3, 1), ncol = 2, byrow = TRUE)
-gram_schmidt(Aa)
+gramschmidt(Aa)
 res = qr(Aa)
 qr.Q(res)
 qr.R(res)
 # (b)
 Ab = matrix(c(1, 2,
               1, 1), ncol = 2, byrow = TRUE)
-gram_schmidt(Ab)
+gramschmidt(Ab)
 res = qr(Ab)
 qr.Q(res)
 qr.R(res)
@@ -51,7 +51,7 @@ qr.R(res)
 Ac = matrix(c(2,  1,
               1, -1,
               2,  1), ncol = 2, byrow = TRUE)
-gram_schmidt(Ac)
+gramschmidt(Ac)
 res = qr(Ac)
 qr.Q(res)
 qr.R(res)
@@ -59,7 +59,7 @@ qr.R(res)
 Ad = matrix(c(4, 8,  1,
               0, 2, -2,
               3, 6,  7), ncol = 3, byrow = TRUE)
-gram_schmidt(Ad)
+gramschmidt(Ad)
 res = qr(Ad)
 qr.Q(res)
 qr.R(res)

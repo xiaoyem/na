@@ -17,8 +17,8 @@
 
 halton = function(p, n) {
     m = ceiling(log(n) / log(p))
-    b = c(rep(0, m))
-    u = c(rep(0, m))
+    b = rep(0, m)
+    u = rep(0, m)
     for (i in 1:n) {
         j = 1
         b[1] = b[1] + 1

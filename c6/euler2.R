@@ -16,7 +16,7 @@
 #
 
 euler2 = function(inter, y0, n) {
-    t = c(rep(0, n + 1))
+    t = rep(0, n + 1)
     y = matrix(0, n + 1, 2)
     t[1] = inter[1]
     y[1, ] = y0

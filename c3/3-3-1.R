@@ -32,7 +32,7 @@ sin1 = function(x) {
     s * nest(3, c, x1, b)
 }
 x = seq(-2, 2, 4 / 100)
-y = c(rep(0, length(x)))
+y = rep(0, length(x))
 for (i in 1:length(x)) {
     y[i] = sin1(x[i])
 }

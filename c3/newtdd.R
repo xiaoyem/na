@@ -25,7 +25,7 @@ newtdd = function(x, y, n) {
             v[j, i] = (v[j + 1, i - 1] - v[j, i - 1]) / (x[j + i - 1] - x[j])
         }
     }
-    c = c(rep(0, n))
+    c = rep(0, n)
     for (i in 1:n) {
         c[i] = v[1, i]
     }

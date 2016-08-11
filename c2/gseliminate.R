@@ -30,7 +30,7 @@ gseliminate = function(A, b) {
             b[j] = b[j] - multi * b[i]
         }
     }
-    x = c(rep(0, n))
+    x = rep(0, n)
     for (i in n:1) {
         if (i < n) {
             for (j in (i + 1):n) {

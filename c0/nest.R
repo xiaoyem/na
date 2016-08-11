@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-nest = function(d, c, x, b = c(rep(0, d))) {
+nest = function(d, c, x, b = rep(0, d)) {
     y = c[d + 1]
     for (i in d:1) {
         y = y * (x - b[i]) + c[i]

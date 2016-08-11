@@ -15,6 +15,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+source("c3/newtdd.R")
+source("c0/nest.R")
 sin1 = function(x) {
     b = c(pi / 4 + pi / 4 * cos((2 * seq(1, 4) - 1) * pi / (2 * 4))); yb = sin(b)
     c = newtdd(b, yb, 4)
@@ -29,9 +31,6 @@ sin1 = function(x) {
     }
     s * nest(3, c, x1, b)
 }
-
-source("c3/newtdd.R")
-source("c0/nest.R")
 x = seq(-2, 2, 4 / 100)
 y = c(rep(0, length(x)))
 for (i in 1:length(x)) {

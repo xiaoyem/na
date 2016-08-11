@@ -32,7 +32,6 @@ gramschmidt = function(A) {
     }
     list(Q = q, R = r)
 }
-
 # (a)
 Aa = matrix(c(4, 0,
               3, 1), ncol = 2, byrow = TRUE)

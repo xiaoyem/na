@@ -36,7 +36,6 @@ topescape = function(n, a, b) {
     p = c / n
     list(p, abs(p - b / (a + b)))
 }
-
 # (a)
 topescape(10000, 5, 2)
 # (b)

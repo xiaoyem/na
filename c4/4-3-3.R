@@ -19,7 +19,7 @@ hhreflect = function(A) {
     m = nrow(A)
     n = ncol(A)
     Q = diag(rep(1, m))
-    for (i in 1:(m - 1)) {
+    for (i in 1:ifelse(m - 1 > n, n, m - 1)) {
         x = A[i:m, i]
         l = length(x)
         w = rep(0, l)

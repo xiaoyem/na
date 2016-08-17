@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,14 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-newtonroot=function(f,df,x0,tol=1e-5,maxit=20){
-  root=x0
-  for(jit in 1:maxit){
-    dx=f(root)/df(root)
-    root=root-dx
-    if(abs(dx)<tol) return (c(root,jit,dx ))
-  }
-  print("maximum number of iterations exceeded.")
+
+newtraphson = function(f, df, x, tol) {
+    repeat {
+        dx = f(x) / df(x)
+        if (abs(dx) <= tol) {
+            break
+        }
+        x = x - dx
+    }
+    x
 }
-                           
-                
+

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,13 +14,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-source("newtonroot.R")
-f1=function(x) x^3-2*x-2
-df1=function(x) 3*x^2-2
-newtonroot(f1,df1,1,1e-8)
-f2=function(x) exp(x)+x-7
- df2=function(x) exp(x)+1
- newtonroot(f2,df2,1,1e-8)
- f3=function(x) exp(x)+sin(x)-4
- df3=function(x) exp(x)+cos(x)
- newtonroot(f3,df3,1,1e-8)
+
+source("c1/newtraphson.R")
+# (a)
+fa  = function(x) x ^ 3 - 2 * x - 2
+dfa = function(x) 3 * x ^ 2 - 2
+newtraphson(fa, dfa, 1, 1e-8)
+# (b)
+fb  = function(x) exp(x) + x - 7
+dfb = function(x) exp(x) + 1
+newtraphson(fb, dfb, 1, 1e-8)
+# (c)
+fc  = function(x) exp(x) + sin(x) - 4
+dfc = function(x) exp(x) + cos(x)
+newtraphson(fc, dfc, 1, 1e-8)
+

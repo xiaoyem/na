@@ -16,10 +16,12 @@
 #
 
 fpi = function(g, x, tol) {
-    gx = g(x)
-    while ((gx - x) / 2 > tol) {
-        x = gx
+    repeat {
         gx = g(x)
+        if ((gx - x) / 2 <= tol) {
+            break
+        }
+        x = gx
     }
     gx
 }

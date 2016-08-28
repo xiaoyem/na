@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,13 +14,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-source("splinecoeff.R")
-source("splineplot.R")
-x=c(0,1,2,3)
-y=c(3,5,4,1)
-splinecoeff(x,y)
-splineplot(x,y,10)
-x=c(-1,0,3,4,5)
-y=c(3,5,1,1,1)
-splinecoeff(x,y)
-splineplot(x,y,10)
+
+source("c3/splinecoeff.R")
+source("c3/splineplot.R")
+# (a)
+xa = c(0, 1, 2, 3)
+ya = c(3, 5, 4, 1)
+splinecoeff(xa, ya)
+splineplot(xa, ya, 100)
+# (b)
+xb = c(-1, 0, 3, 4, 5)
+yb = c( 3, 5, 1, 1, 1)
+splinecoeff(xb, yb)
+splineplot(xb, yb, 100)
+

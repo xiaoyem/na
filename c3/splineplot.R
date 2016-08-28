@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,22 +14,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-splineplot=function(x,y,k){
-n=length(x) 
-coe=splinecoeff(x,y);
-x1=matrix()
-y1=matrix()
-for(i in 1:(n-1)){           
-xs=seq(x[i],x[i+1],length.out=k+1)
-dx=xs-x[i]
-ys=coe[i,3]*dx
-ys=(ys+coe[i,2])*dx
-ys=(ys+coe[i,1])*dx+y[i]
-x1=cbind(x1,t(xs[1:k]))
-y1=cbind(y1,t(ys[1:k]))
+
+splineplot = function(x, y, k) {
+    n = length(x)
+    coeff = splinecoeff(x, y)
+    x1 = c(); y1 = c()
+    for (i in 1:(n - 1)) {
+        xs = seq(x[i], x[i + 1], length.out = k + 1)
+        dx = xs - x[i]
+        ys = coeff[i, 3] * dx
+        ys = (ys + coeff[i, 2]) * dx
+        ys = (ys + coeff[i, 1]) * dx + y[i]
+        x1 = c(x1, xs[1:k]); y1 = c(y1, ys[1:k])
+    }
+    x1 = c(x1, x[n]); y1 = c(y1, y[n])
+    plot(x1, y1, type = 'l')
+    points(x, y)
 }
-x1=cbind(x1,x[n])
-y1=cbind(y1,y[n])
-plot(x1,y1,type = "l")
-points(x,y)
-}
+

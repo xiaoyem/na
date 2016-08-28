@@ -18,7 +18,7 @@
 hhreflect = function(A) {
     m = nrow(A)
     n = ncol(A)
-    Q = diag(rep(1, m))
+    Q = diag(m)
     for (i in 1:ifelse(m - 1 > n, n, m - 1)) {
         x = A[i:m, i]
         l = length(x)
@@ -26,7 +26,7 @@ hhreflect = function(A) {
         w[1] = sqrt(sum(x ^ 2))
         v = w - x
         P = v %*% t(v) / as.numeric(t(v) %*% v)
-        I = diag(rep(1, l))
+        I = diag(l)
         H = I - 2 * P
         while (l < m) {
             H = cbind(rep(0, l), H)

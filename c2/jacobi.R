@@ -15,15 +15,31 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+require(Matrix)
+
 jacobi = function(A, b, x0, tol) {
     n = length(b)
     D = diag(diag(A))
     r = A - D
     x = matrix(0, n, 1)
-    c = 0;
+    c = 0
     while (norm(x0 - x, "I") / 2 > tol) {
         c = c + 1
-    	x = solve(D) %*% (b - r %*% x)
+        x = solve(D) %*% (b - r %*% x)
+    }
+    print(c)
+    x
+}
+
+Jacobi = function(A, b, x0, tol) {
+    n = length(b)
+    D = Diagonal(x = diag(A))
+    r = A - D
+    x = Matrix(0, n, 1, sparse = TRUE)
+    c = 0
+    while (norm(x0 - x, "I") / 2 > tol) {
+        c = c + 1
+        x = solve(D) %*% (b - r %*% x)
     }
     print(c)
     x

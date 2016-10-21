@@ -31,8 +31,8 @@ hhreflect = function(A) {
         while (l < m) {
             H = cbind(rep(0, l), H)
             H = rbind(rep(0, l + 1), H)
-            H[1, 1] = 1;
-            l = l + 1;
+            H[1, 1] = 1
+            l = l + 1
         }
         Q = Q %*% H
         A = H %*% A

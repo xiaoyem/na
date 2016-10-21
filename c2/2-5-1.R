@@ -17,10 +17,18 @@
 
 source("c2/jacobi.R")
 n = 100
-A = diag(rep(3, n)) + rbind(rep(0, n), cbind(diag(rep(-1, n - 1)), rep(0, n - 1))) +
-    cbind(rep(0, n), rbind(diag(rep(-1, n - 1)), rep(0, n - 1)))
+A = diag(3, n) + rbind(rep(0, n), cbind(diag(-1, n - 1), rep(0, n - 1))) +
+    cbind(rep(0, n), rbind(diag(-1, n - 1), rep(0, n - 1)))
 b = matrix(1, n, 1)
 b[1, 1] = 2; b[n, 1] = 2
 x0 = matrix(1, n, 1)
 norm(b - A %*% jacobi(A, b, x0, 0.5e-6), "I")
+# FIXME
+n = 100000
+A = Diagonal(n, 3) + rBind(rep(0, n), cBind(Diagonal(n - 1, -1), rep(0, n - 1))) +
+    cBind(rep(0, n), rBind(Diagonal(n - 1, -1), rep(0, n - 1)))
+b = Matrix(1, n, 1, sparse = TRUE)
+b[1, 1] = 2; b[n, 1] = 2
+x0 = Matrix(1, n, 1, sparse = TRUE)
+norm(b - A %*% Jacobi(A, b, x0, 0.5e-6), "I")
 

@@ -15,14 +15,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-source("c1/fpi.R")
+source("c1/newtraphson.R")
 # (a)
-fa = function(x) (2 * x + 2) ^ (1 / 3)
-fpi(fa, 0, 0.5e-8)
+fa  = function(x) x ^ 5 + x - 1
+dfa = function(x) 5 * x ^ 4 + 1
+newtraphson(fa, dfa, 1, 1e-8)
 # (b)
-fb = function(x) log(7 - x)
-fpi(fb, 0, 0.5e-8)
+fb  = function(x) sin(x) - 6 * x - 5
+dfb = function(x) cos(x) - 6
+newtraphson(fb, dfb, 1, 1e-8)
 # (c)
-fc = function(x) log(4 - sin(x))
-fpi(fc, 0, 0.5e-8)
+fc  = function(x) log(x) + x ^ 2 - 3
+dfc = function(x) 1 / x + 2 * x
+newtraphson(fc, dfc, 1, 1e-8)
 

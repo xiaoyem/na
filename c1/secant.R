@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2017 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,28 +14,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-regula=function(f,xmin,xmax,tol=1e-5){
-  a=xmin
-  b=xmax
-  if(a>=b){
-    cat("error :xmin >xmax\n")
-    return(NULL)
-  }
-  if(f(a)==0){ 
-    return(a)
-  }else if(f(b)==0){ 
-    return(b)
-  }else if(f(a)*f(b)>0){cat("error:f(xmin) and f(xmax) of same sign \n") 
-        return(NULL)
+
+secant = function(f, x0, x1, tol) {
+    repeat {
+        dx = f(x1) * (x1 - x0) / (f(x1) - f(x0))
+        if (abs(dx) <= tol) break
+        x0 = x1; x1 = x1 - dx
     }
-  iter=0
-  while((b-a)>tol){
-    c=(b*f(a)-a*f(b))/(f(a)-f(b))
-    if(f(c)==0){return(c)}
-    else if(f(a)*f(c)<0){b=c}
-    else{a=c}
-    iter=iter+1
-  }
-  return(c((b*f(a)-a*f(b))/(f(a)-f(b)),iter,(b-a)))
+    x1
 }
-          
+

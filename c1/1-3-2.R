@@ -15,14 +15,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-source("c1/fpi.R")
+f = function(x) sin(x ^ 3) - x ^ 3
 # (a)
-fa = function(x) (2 * x + 2) ^ (1 / 3)
-fpi(fa, 0, 0.5e-8)
+# FIXME
 # (b)
-fb = function(x) log(7 - x)
-fpi(fb, 0, 0.5e-8)
-# (c)
-fc = function(x) log(4 - sin(x))
-fpi(fc, 0, 0.5e-8)
+uniroot(f, c(-0.2, 0.1))
 

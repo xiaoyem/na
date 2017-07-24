@@ -15,14 +15,21 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-source("c1/fpi.R")
-# (a)
-fa = function(x) (2 * x + 2) ^ (1 / 3)
-fpi(fa, 0, 0.5e-8)
-# (b)
-fb = function(x) log(7 - x)
-fpi(fb, 0, 0.5e-8)
-# (c)
-fc = function(x) log(4 - sin(x))
-fpi(fc, 0, 0.5e-8)
+fp = function(f, a, b, tol) {
+    fa = f(a); fb = f(b)
+    if (fa * fb >= 0) {
+        stop("f(a)f(b) < 0 not satisfied!")
+    }
+    while ((b - a) / 2 > tol) {
+        c = (b * fa - a * fb) / (fa - fb)
+        fc = f(c)
+        if (fc == 0) break
+        if (fc * fa < 0) {
+            b = c; fb = fc
+        } else {
+            a = c; fa = fc
+        }
+    }
+    (b * fa - a * fb) / (fa - fb)
+}
 

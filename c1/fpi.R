@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2016 by Yuchao Zhao, Xiaoye Meng.
+# Copyright (c) 2015-2017 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,9 +18,7 @@
 fpi = function(g, x, tol) {
     repeat {
         gx = g(x)
-        if ((gx - x) / 2 <= tol) {
-            break
-        }
+        if ((gx - x) / 2 <= tol) break
         x = gx
     }
     gx

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2017 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,10 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-source("secant.R")
-f=function(x) x^3-2*x-2
-secant(f,1,2)
-f2=function(x) exp(x)+x-7
-secant(f2,1,2)
-f3=function(x) exp(x)+sin(x)-4
-secant(f3,1,2)
+
+source("c1/secant.R")
+# (a)
+fa = function(x) x ^ 3 - 2 * x - 2
+secant(fa, 1, 2, 1e-8)
+# (b)
+fb = function(x) exp(x) + x - 7
+secant(fb, 1, 2, 1e-8)
+# (c)
+fc = function(x) exp(x) + sin(x) - 4
+secant(fc, 1, 2, 1e-8)
+

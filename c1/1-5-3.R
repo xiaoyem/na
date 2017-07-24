@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015 by Xiaoye Meng ,Yuchao Zhao.
+# Copyright (c) 2015-2017 by Yuchao Zhao, Xiaoye Meng.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,10 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-source("IQI.R")
-f1=function(x) x^3-2*x-2
-f2=function(x) exp(x)+x-7
-f3=function(x) exp(x)+sin(x)-4
-IQI(f1,1,2,3)
-IQI(f2,1,2,3)
-IQI(f3,1,2,3)
+
+source("c1/iqi.R")
+# (a)
+fa = function(x) x ^ 3 - 2 * x - 2
+iqi(fa, 1, 2, 0, 0.5e-8)
+# (b)
+fb = function(x) exp(x) + x - 7
+iqi(fb, 1, 2, 0, 0.5e-8)
+# (c)
+fc = function(x) exp(x) + sin(x) - 4
+iqi(fc, 1, 2, 0, 0.5e-8)
+

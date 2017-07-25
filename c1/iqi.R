@@ -15,15 +15,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-source("c1/fp.R")
-# (a)
-fa = function(x) x ^ 3 - 2 * x - 2
-fp(fa, 1, 2, 0.5e-8)
-# (b)
-# FIXME
-#fb = function(x) exp(x) + x - 7
-#fp(fb, 1, 2, 0.5e-8)
-# (c)
-fc = function(x) exp(x) + sin(x) - 4
-fp(fc, 1, 2, 0.5e-8)
+iqi = function(f, x0, x1, x2, tol) {
+    while (abs(x2 - x1) / 2 > tol) {
+        q = f(x0) / f(x1); r = f(x2) / f(x1); s = f(x2) / f(x0)
+        x3 = x2 - (r * (r - q) * (x2 - x1) + (1 - r) * s * (x2 - x0)) /
+            ((q - 1) * (r - 1) * (s - 1))
+        x0 = x1; x1 = x2; x2 = x3
+    }
+    x2
+}
 

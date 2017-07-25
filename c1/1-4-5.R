@@ -15,15 +15,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-source("c1/fp.R")
-# (a)
-fa = function(x) x ^ 3 - 2 * x - 2
-fp(fa, 1, 2, 0.5e-8)
-# (b)
-# FIXME
-#fb = function(x) exp(x) + x - 7
-#fp(fb, 1, 2, 0.5e-8)
-# (c)
-fc = function(x) exp(x) + sin(x) - 4
-fp(fc, 1, 2, 0.5e-8)
+source("c1/newtraphson.R")
+f  = function(x) 10 * pi * x ^ 2 + 2 * pi * x ^ 3 / 3 - 400
+df = function(x) 20 * pi * x + 2 * pi * x ^ 2
+newtraphson(f, df, 1, 1e-4)
 

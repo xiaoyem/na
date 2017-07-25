@@ -15,15 +15,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-source("c1/fp.R")
-# (a)
-fa = function(x) x ^ 3 - 2 * x - 2
-fp(fa, 1, 2, 0.5e-8)
-# (b)
-# FIXME
-#fb = function(x) exp(x) + x - 7
-#fp(fb, 1, 2, 0.5e-8)
-# (c)
-fc = function(x) exp(x) + sin(x) - 4
-fp(fc, 1, 2, 0.5e-8)
+require(rootSolve)
+
+f = function(x) exp(sin(x) ^ 3) + x ^ 6 - 2 * x ^ 4 - x ^ 3 - 1
+curve(f, -2, 2)
+abline(h = 0, v = 0)
+uniroot.all(f, c(-2, 2), tol = 1e-8)
 
